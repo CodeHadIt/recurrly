@@ -12,11 +12,13 @@ import cx from "clsx";
 import { Link, useRouter } from "expo-router";
 import { useMemo, useState } from "react";
 import { Pressable, Text, View } from "react-native";
+import { usePostHog } from "posthog-react-native";
 
 const SignUp = () => {
   const router = useRouter();
   const { isSignedIn } = useAuth();
   const { signUp } = useSignUp();
+  const posthog = usePostHog();
 
   const [emailAddress, setEmailAddress] = useState("");
   const [password, setPassword] = useState("");
@@ -117,6 +119,11 @@ const SignUp = () => {
               return;
             }
 
+            posthog.identify(session?.user?.id ?? emailAddress.trim(), {
+              $set: { email: emailAddress.trim() },
+              $set_once: { signed_up_at: new Date().toISOString() },
+            });
+            posthog.capture("user_signed_up");
             router.replace("/");
           },
         });

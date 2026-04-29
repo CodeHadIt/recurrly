@@ -12,10 +12,12 @@ import cx from "clsx";
 import { Link, useRouter } from "expo-router";
 import { useMemo, useState } from "react";
 import { Pressable, Text, View } from "react-native";
+import { usePostHog } from "posthog-react-native";
 
 const SignIn = () => {
   const router = useRouter();
   const { signIn } = useSignIn();
+  const posthog = usePostHog();
 
   const [emailAddress, setEmailAddress] = useState("");
   const [password, setPassword] = useState("");
@@ -72,6 +74,10 @@ const SignIn = () => {
               return;
             }
 
+            posthog.identify(session?.user?.id ?? emailAddress.trim(), {
+              $set: { email: emailAddress.trim() },
+            });
+            posthog.capture("user_signed_in", { method: "password" });
             router.replace("/");
           },
         });
@@ -80,6 +86,7 @@ const SignIn = () => {
 
       if (signIn.status === "needs_client_trust") {
         await signIn.mfa.sendEmailCode();
+        posthog.capture("mfa_code_sent", { method: "email" });
         return;
       }
 
@@ -130,6 +137,10 @@ const SignIn = () => {
               return;
             }
 
+            posthog.identify(session?.user?.id ?? emailAddress.trim(), {
+              $set: { email: emailAddress.trim() },
+            });
+            posthog.capture("user_signed_in", { method: "password_mfa" });
             router.replace("/");
           },
         });
