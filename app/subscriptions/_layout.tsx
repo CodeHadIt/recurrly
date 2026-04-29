@@ -2,18 +2,18 @@ import AppLoader from "@/components/AppLoader";
 import { useAuth } from "@clerk/expo";
 import { Redirect, Stack } from "expo-router";
 
-const AuthLayout = () => {
+const SubscriptionLayout = () => {
   const { isLoaded, isSignedIn } = useAuth();
 
   if (!isLoaded) {
-    return <AppLoader message="Preparing secure access..." />;
+    return <AppLoader message="Loading subscription details..." />;
   }
 
-  if (isSignedIn) {
-    return <Redirect href="/" />;
+  if (!isSignedIn) {
+    return <Redirect href="/(auth)/sign-in" />;
   }
 
   return <Stack screenOptions={{ headerShown: false }} />;
 };
 
-export default AuthLayout;
+export default SubscriptionLayout;
