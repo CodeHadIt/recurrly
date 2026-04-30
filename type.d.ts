@@ -45,6 +45,31 @@ declare global {
     daysLeft: number;
   }
 
+  type ChartPeriod = "weekly" | "monthly" | "yearly";
+
+  interface ExpensesChartPoint {
+    label: string;
+    value: number;
+    frontColor?: string;
+  }
+
+  interface ExpensesSummary {
+    title: string;
+    totalExpenses: number;
+    currency?: string;
+    periodLabel: string;
+    percentageGrowth: number;
+    comparisonLabel: string;
+  }
+
+  interface ExpensesChartProps {
+    period: ChartPeriod;
+    onPeriodChange: (period: ChartPeriod) => void;
+    data: ExpensesChartPoint[];
+    maxValue: number;
+    caption: string;
+  }
+
   interface UpcomingSubscriptionCardProps extends Omit<
     UpcomingSubscription,
     "id"
@@ -56,4 +81,3 @@ declare global {
 }
 
 export { };
-

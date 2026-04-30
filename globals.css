@@ -417,4 +417,112 @@
   .category-chip-text-active {
     @apply text-accent;
   }
+
+  .insights-screen {
+    @apply flex-1 bg-background;
+  }
+
+  .insights-content {
+    @apply px-5 pb-30 pt-6;
+  }
+
+  .insights-screen-header {
+    @apply mb-6 gap-2;
+  }
+
+  .insights-screen-title {
+    @apply text-3xl font-sans-bold text-primary;
+  }
+
+  .insights-screen-copy {
+    @apply max-w-[320px] text-sm font-sans-medium leading-6 text-muted-foreground;
+  }
+
+  .expenses-panel {
+    @apply rounded-[32px] border border-border bg-card p-5;
+  }
+
+  .expenses-header {
+    @apply gap-2;
+  }
+
+  .expenses-kicker {
+    @apply text-xs font-sans-semibold uppercase tracking-[1px] text-accent;
+  }
+
+  .expenses-title {
+    @apply text-2xl font-sans-bold text-primary;
+  }
+
+  .expenses-copy {
+    @apply text-sm font-sans-medium leading-6 text-muted-foreground;
+  }
+
+  .expenses-summary-card {
+    @apply mt-5 rounded-[28px] bg-background p-5;
+  }
+
+  .expenses-summary-kicker {
+    @apply text-xs font-sans-semibold uppercase tracking-[1px] text-muted-foreground;
+  }
+
+  .expenses-summary-row {
+    @apply mt-3 flex-row items-end justify-between gap-3;
+  }
+
+  .expenses-summary-amount {
+    @apply text-4xl font-sans-extrabold text-primary;
+  }
+
+  .expenses-summary-trend {
+    @apply rounded-full bg-accent/10 px-3 py-2;
+  }
+
+  .expenses-summary-trend-down {
+    @apply bg-primary/8;
+  }
+
+  .expenses-summary-trend-text {
+    @apply text-sm font-sans-semibold text-accent;
+  }
+
+  .expenses-summary-trend-text-down {
+    @apply text-primary;
+  }
+
+  .expenses-summary-context {
+    @apply mt-3 text-sm font-sans-medium text-muted-foreground;
+  }
+
+  .expenses-chart-shell {
+    @apply mt-5 gap-4;
+  }
+
+  .expenses-toggle {
+    @apply flex-row rounded-full bg-background p-1;
+  }
+
+  .expenses-toggle-pill {
+    @apply flex-1 items-center rounded-full px-3 py-3;
+  }
+
+  .expenses-toggle-pill-active {
+    @apply bg-accent;
+  }
+
+  .expenses-toggle-text {
+    @apply text-sm font-sans-semibold capitalize text-muted-foreground;
+  }
+
+  .expenses-toggle-text-active {
+    @apply text-primary;
+  }
+
+  .expenses-chart-frame {
+    @apply overflow-hidden rounded-[28px] bg-background px-3 py-5;
+  }
+
+  .expenses-chart-caption {
+    @apply text-xs font-sans-medium leading-5 text-muted-foreground;
+  }
 }

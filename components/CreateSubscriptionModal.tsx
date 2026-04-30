@@ -1,6 +1,6 @@
 import { icons } from "@/constants/icons";
 import { posthog } from "@/src/config/posthog";
-import clsx from "clsx";
+import cx from "clsx";
 import dayjs from "dayjs";
 import React, { useState } from "react";
 import {
@@ -172,14 +172,14 @@ const CreateSubscriptionModal = ({
                 <Text className="auth-label">Frequency</Text>
                 <View className="picker-row">
                   <Pressable
-                    className={clsx(
+                    className={cx(
                       "picker-option",
                       frequency === "Monthly" && "picker-option-active",
                     )}
                     onPress={() => setFrequency("Monthly")}
                   >
                     <Text
-                      className={clsx(
+                      className={cx(
                         "picker-option-text",
                         frequency === "Monthly" && "picker-option-text-active",
                       )}
@@ -188,14 +188,14 @@ const CreateSubscriptionModal = ({
                     </Text>
                   </Pressable>
                   <Pressable
-                    className={clsx(
+                    className={cx(
                       "picker-option",
                       frequency === "Yearly" && "picker-option-active",
                     )}
                     onPress={() => setFrequency("Yearly")}
                   >
                     <Text
-                      className={clsx(
+                      className={cx(
                         "picker-option-text",
                         frequency === "Yearly" && "picker-option-text-active",
                       )}
@@ -212,14 +212,14 @@ const CreateSubscriptionModal = ({
                   {CATEGORIES.map((cat) => (
                     <Pressable
                       key={cat}
-                      className={clsx(
+                      className={cx(
                         "category-chip",
                         category === cat && "category-chip-active",
                       )}
                       onPress={() => setCategory(cat)}
                     >
                       <Text
-                        className={clsx(
+                        className={cx(
                           "category-chip-text",
                           category === cat && "category-chip-text-active",
                         )}
@@ -232,7 +232,7 @@ const CreateSubscriptionModal = ({
               </View>
 
               <Pressable
-                className={clsx(
+                className={cx(
                   "auth-button",
                   !isValidForm && "auth-button-disabled",
                 )}
