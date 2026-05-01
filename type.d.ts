@@ -53,6 +53,10 @@ declare global {
     frontColor?: string;
   }
 
+  type StatusMultiplierMap = Record<string, number>;
+  type PeriodVariationMap = Record<ChartPeriod, number[]>;
+  type PeriodCaptionMap = Record<ChartPeriod, string>;
+
   interface ExpensesSummary {
     title: string;
     totalExpenses: number;

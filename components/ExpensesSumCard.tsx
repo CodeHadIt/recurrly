@@ -1,5 +1,5 @@
-import cx from "clsx";
 import { formatCurrency } from "@/lib/utils";
+import cx from "clsx";
 import { Text, View } from "react-native";
 
 const ExpensesSumCard = ({
@@ -14,17 +14,16 @@ const ExpensesSumCard = ({
   const formattedGrowth = `${isPositiveGrowth ? "+" : ""}${percentageGrowth.toFixed(1)}%`;
 
   return (
-    <View className="expenses-summary-card">
-      <Text className="expenses-summary-kicker">{title}</Text>
+    <View className="expenses-summary-card expenses-head">
+      <View>
+        <Text className="sub-title">{title}</Text>
+        <Text className="sub-meta">{periodLabel}</Text>
+      </View>
 
-      <View className="expenses-summary-row">
-        <View className="flex-1">
-          <Text className="expenses-summary-amount">
-            {formatCurrency(totalExpenses, currency)}
-          </Text>
-          <Text className="expenses-summary-context">{periodLabel}</Text>
-        </View>
-
+      <View className="sub-price-box">
+        <Text className="sub-price">
+          {formatCurrency(totalExpenses, currency)}
+        </Text>
         <View
           className={cx(
             "expenses-summary-trend",
@@ -42,7 +41,7 @@ const ExpensesSumCard = ({
         </View>
       </View>
 
-      <Text className="expenses-summary-context">{comparisonLabel}</Text>
+      {/* <Text className="expenses-summary-context">{comparisonLabel}</Text> */}
     </View>
   );
 };

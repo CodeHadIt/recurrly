@@ -22,6 +22,12 @@ const SubscriptionCard = ({
   startDate,
   status,
 }: SubscriptionCardProps) => {
+  const isPaymentHistoryItem = status === "paid";
+  const startDateLabel = isPaymentHistoryItem ? "Paid on:" : "Started:";
+  const renewalDateLabel = isPaymentHistoryItem
+    ? "Next bill:"
+    : "Renewal date:";
+
   return (
     <Pressable
       className={cx("sub-card", expanded ? "sub-card-expanded" : "bg-card")}
@@ -78,7 +84,7 @@ const SubscriptionCard = ({
             </View>
             <View className="sub-row">
               <View className="sub-row-copy">
-                <Text className="sub-label">Started:</Text>
+                <Text className="sub-label">{startDateLabel}</Text>
                 <Text
                   className="sub-value"
                   numberOfLines={1}
@@ -92,7 +98,7 @@ const SubscriptionCard = ({
             </View>
             <View className="sub-row">
               <View className="sub-row-copy">
-                <Text className="sub-label">Renewal date:</Text>
+                <Text className="sub-label">{renewalDateLabel}</Text>
                 <Text
                   className="sub-value"
                   numberOfLines={1}

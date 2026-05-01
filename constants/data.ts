@@ -7,6 +7,27 @@ export const tabs: AppTab[] = [
   { name: "settings", title: "Settings", icon: icons.setting },
 ];
 
+export const STATUS_MULTIPLIERS: StatusMultiplierMap = {
+  active: 1,
+  paused: 0.58,
+  cancelled: 0.22,
+};
+
+export const PERIOD_VARIATIONS: PeriodVariationMap = {
+  weekly: [0.82, 1.04, 0.93, 1.1, 1.18, 0.97, 1.06],
+  monthly: [0.78, 0.9, 1.02, 0.96, 1.12, 1.2],
+  yearly: [0.74, 0.88, 1.01, 1.16],
+};
+
+export const PERIOD_CAPTIONS: PeriodCaptionMap = {
+  weekly:
+    "A 7-day projection of renewal pressure based on your current subscription mix.",
+  monthly:
+    "A rolling 6-month view of recurring charges shaped by plan type, status, and billing cycle.",
+  yearly:
+    "A 4-year outlook that translates your current subscriptions into annual recurring spend.",
+};
+
 export const HOME_USER = {
   name: "Code | Hadit",
 };

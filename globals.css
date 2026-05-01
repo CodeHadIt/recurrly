@@ -442,6 +442,10 @@
     @apply rounded-[32px] border border-border bg-card p-5;
   }
 
+  .expenses-head {
+    @apply flex-row items-center justify-between py-2;
+  }
+
   .expenses-header {
     @apply gap-2;
   }
@@ -459,15 +463,11 @@
   }
 
   .expenses-summary-card {
-    @apply mt-5 rounded-[28px] bg-background p-5;
-  }
-
-  .expenses-summary-kicker {
-    @apply text-xs font-sans-semibold uppercase tracking-[1px] text-muted-foreground;
+    @apply mt-4 rounded-2xl border border-border p-4;
   }
 
   .expenses-summary-row {
-    @apply mt-3 flex-row items-end justify-between gap-3;
+    @apply ml-3 shrink-0 items-end;
   }
 
   .expenses-summary-amount {
@@ -475,7 +475,7 @@
   }
 
   .expenses-summary-trend {
-    @apply rounded-full bg-accent/10 px-3 py-2;
+    @apply rounded-full bg-accent/10 px-1 py-1;
   }
 
   .expenses-summary-trend-down {
@@ -488,10 +488,6 @@
 
   .expenses-summary-trend-text-down {
     @apply text-primary;
-  }
-
-  .expenses-summary-context {
-    @apply mt-3 text-sm font-sans-medium text-muted-foreground;
   }
 
   .expenses-chart-shell {
