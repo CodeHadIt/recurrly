@@ -9,6 +9,7 @@
   --color-foreground: #081126;
   --color-card: #fff8e7;
   --color-muted: #f6eecf;
+  --color-chart-card: #f6ecc9;
   --color-muted-foreground: rgba(0, 0, 0, 0.6);
   --color-primary: #081126;
   --color-accent: #ea7a53;
@@ -515,7 +516,7 @@
   }
 
   .expenses-chart-frame {
-    @apply overflow-hidden rounded-[28px] bg-background px-3 py-5;
+    @apply rounded-[28px] bg-chart-card px-3 py-5;
   }
 
   .expenses-chart-caption {

@@ -51,6 +51,7 @@ declare global {
     label: string;
     value: number;
     frontColor?: string;
+    isUnavailable?: boolean;
   }
 
   type StatusMultiplierMap = Record<string, number>;

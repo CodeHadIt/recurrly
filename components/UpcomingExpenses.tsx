@@ -1,6 +1,6 @@
 import { PERIOD_CAPTIONS } from "@/constants/data";
 import { useSubscriptionStore } from "@/lib/subscriptionStore";
-import { buildChartData, buildSummary } from "@/lib/utils";
+import { buildChartData, buildSummary, getNiceChartMaxValue } from "@/lib/utils";
 import { useMemo, useState } from "react";
 import { View } from "react-native";
 import ExpensesChart from "./ExpensesChart";
@@ -24,7 +24,7 @@ const UpcomingExpenses = () => {
   const maxValue = useMemo(() => {
     const highestValue = Math.max(...chartData.map((item) => item.value), 0);
 
-    return Math.max(10, Math.ceil(highestValue / 5) * 5);
+    return getNiceChartMaxValue(highestValue, 4);
   }, [chartData]);
 
   return (
